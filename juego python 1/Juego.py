@@ -1,6 +1,4 @@
-
 import pilasengine
-import os
 pilas = pilasengine.iniciar()
 
 puntaje = pilas.actores.Puntaje(-200, 200, color=pilas.colores.blanco)
@@ -37,11 +35,11 @@ def crear_enemigo ():
 
 pilas.tareas.siempre(0.5, crear_enemigo)
 
-pelota = pilas.actores.NaveRoja(y=-200)
-pelota.aprender(pilas.habilidades.LimitadoABordesDePantalla)
-pelota.definir_enemigos(enemigos, puntaje.aumentar)
+NaveRoja = pilas.actores.NaveRoja(y=-200)
+NaveRoja.aprender(pilas.habilidades.LimitadoABordesDePantalla)
+NaveRoja.definir_enemigos(enemigos, puntaje.aumentar)
 
-pilas.colisiones.agregar(pelota, enemigos, pelota.eliminar)
+pilas.colisiones.agregar(NaveRoja, enemigos, NaveRoja.eliminar)
 
 
 pilas.ejecutar()
