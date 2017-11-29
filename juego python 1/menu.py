@@ -32,7 +32,7 @@ class EscenaMenu(pilasengine.escenas.Escena):
         #Importamos el codigo del juego desde el archivo juego.py
         
         
-        import Juego #VER!
+        import juego #VER!
         
         
     def pantalla_ayuda(self):
@@ -64,7 +64,18 @@ class Ayuda(pilasengine.escenas.Escena):
 
     def cuando_pulsa_tecla(self, *k, **kw):
         self.pilas.escenas.EscenaMenu()
-
+    
+        
+    def fin_juego(menu):
+       texto = pilas.actores.Texto("FIN DEL JUEGO")
+       texto.color = pilas.colores.blanco
+       texto.y = 70
+       texto2 = pilas.actores.Texto("Felicitaciones!!! Has obtenido %d puntos" %(puntaje.obtener()))
+       texto2.color = pilas.colores.verde
+       texto2.y = 35
+       fondo.imagen = "imagenes/final.jpg"
+       fondo.dy = 0
+       nave.eliminar()
 
 # Vinculamos las escenas
 pilas.escenas.vincular(EscenaMenu)
